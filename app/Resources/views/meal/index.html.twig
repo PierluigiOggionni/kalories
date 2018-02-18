@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Meals list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Mealdate</th>
+                <th>Mealdatetime</th>
+                <th>Text</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for meal in meals %}
+            <tr>
+                <td><a href="{{ path('meal_show', { 'id': meal.id }) }}">{{ meal.id }}</a></td>
+                <td>{% if meal.mealDate %}{{ meal.mealDate|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if meal.mealDateTime %}{{ meal.mealDateTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ meal.text }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('meal_show', { 'id': meal.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('meal_edit', { 'id': meal.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('meal_new') }}">Create a new meal</a>
+        </li>
+    </ul>
+{% endblock %}

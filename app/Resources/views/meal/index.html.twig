@@ -1,30 +1,80 @@
 {% extends 'base.html.twig' %}
+{% block body_id 'admin_post_new' %}
 
-{% block body %}
+{% block main %}
+
+    <style>
+        .accordion {
+            background-color: #89ee5c;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+
+            border-bottom-width: 10px;
+            margin-bottom: 10px;
+
+        }
+
+        .active, .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .neg {
+            background-color: #ee8365;
+        }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+    </style>
+
     <h1>Meals list</h1>
+<div id="meal-search" class="well">
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input class="btn btn-primary" type="submit">
+    {{ form_end(form) }}
 
-    <table>
+</div>
+    <ul>
+        <li>
+            <a href="{{ path('meal_new') }}">Create a new meal</a>
+        </li>
+    </ul>
+    {%  for day in meals_day %}
+        <div class="accordion {{ (day.calories > craue_setting('calories_per_day') )?"neg":"" }}">Date:{{ day.date }} <span class="pull-right">Total calories per day:{{ day.calories }}</span></div>
+    <div class="panel">
+        <table class="table table-striped">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Mealdate</th>
-                <th>Mealdatetime</th>
-                <th>Text</th>
+
+
+                <th>{{ 'label.meal_time'|trans }}</th>
+                <th>{{ 'label.description'|trans }}</th>
+                <th>{{ 'Calories'|trans }}</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for meal in meals %}
+        {% for meal in day.meals %}
             <tr>
-                <td><a href="{{ path('meal_show', { 'id': meal.id }) }}">{{ meal.id }}</a></td>
-                <td>{% if meal.mealDate %}{{ meal.mealDate|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if meal.mealDateTime %}{{ meal.mealDateTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+
+
+                <td>{% if meal.mealDateTime %}{{ meal.mealDateTime|localizeddate('short','short') }}{% endif %}</td>
                 <td>{{ meal.text }}</td>
+                <td>{{ meal.calories }}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('meal_show', { 'id': meal.id }) }}">show</a>
-                        </li>
+
                         <li>
                             <a href="{{ path('meal_edit', { 'id': meal.id }) }}">edit</a>
                         </li>
@@ -34,10 +84,26 @@
         {% endfor %}
         </tbody>
     </table>
+    </div>
+{% endfor %}
 
-    <ul>
-        <li>
-            <a href="{{ path('meal_new') }}">Create a new meal</a>
-        </li>
-    </ul>
+
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+
 {% endblock %}

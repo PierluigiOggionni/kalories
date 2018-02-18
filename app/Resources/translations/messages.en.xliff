@@ -66,7 +66,7 @@
 
             <trans-unit id="title.homepage">
                 <source>title.homepage</source>
-                <target><![CDATA[Welcome to the <strong>Symfony Demo</strong> application]]></target>
+                <target><![CDATA[Welcome to the <strong>Kalories Demo</strong> application]]></target>
             </trans-unit>
             <trans-unit id="title.source_code">
                 <source>title.source_code</source>
@@ -210,6 +210,10 @@
                 <source>label.published_at</source>
                 <target>Published at</target>
             </trans-unit>
+            <trans-unit id="label.meal_type">
+                <source>label.meal_time</source>
+                <target>Meal time</target>
+            </trans-unit>
             <trans-unit id="label.actions">
                 <source>label.actions</source>
                 <target>Actions</target>
@@ -276,6 +280,11 @@
                 <source>post.deleted_successfully</source>
                 <target>Post deleted successfully!</target>
             </trans-unit>
+            <trans-unit id="label.description">
+                <source>label.description</source>
+                <target>Description</target>
+            </trans-unit>
+
 
             <trans-unit id="help.app_description">
                 <source>help.app_description</source>

@@ -25,3 +25,12 @@ homepage:
         _controller: FrameworkBundle:Template:template
         template:    default/homepage.html.twig
         _locale:     '%locale%'
+
+craue_config_settings_modify:
+    path: /{_locale}/admin/modify
+
+    requirements:
+            _locale: '%app_locales%'
+    defaults:
+        _controller: CraueConfigBundle:Settings:modify
+        _locale: '%locale%'

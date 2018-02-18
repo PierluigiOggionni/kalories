@@ -12,4 +12,19 @@ use Doctrine\ORM\EntityRepository;
  */
 class MealRepository extends EntityRepository
 {
+    public function getQueryHome()
+    {
+        return $this->getEntityManager()
+            ->createQuery('
+                SELECT m
+                FROM AppBundle:Meal p
+                WHERE m.meal_date <= :dateend
+                and m.meal_date >= :datestart
+                and m.user = :user
+                
+                ORDER BY p.meal_date DESC
+            ')
+            ->setParameter('now', new \DateTime())
+            ;
+    }
 }

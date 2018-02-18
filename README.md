@@ -1,10 +1,8 @@
 Symfony Demo Application
 ========================
 
-The "Symfony Demo Application" is a reference application created to show how
-to develop Symfony applications following the recommended best practices.
+The "Kalories Demo Application" is a demo application
 
-[![Build Status](https://travis-ci.org/symfony/symfony-demo.svg?branch=master)](https://travis-ci.org/symfony/symfony-demo)
 
 Requirements
 ------------
@@ -20,30 +18,13 @@ information.
 Installation
 ------------
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-First, install the [Symfony Installer](https://github.com/symfony/symfony-installer)
-if you haven't already. Then, install the Symfony Demo Application executing
-this command anywhere in your system:
 
 ```bash
-$ symfony demo
-
-# if you're using Windows:
-$ php symfony demo
+$ git clone https://github.com/PierluigiOggionni/kalories kalories
+$ cd kalories/
+$ composer install --no-interaction
 ```
-
-If the `demo` command is not available, update your Symfony Installer to the
-most recent version executing the `symfony self-update` command.
-
-> **NOTE**
->
-> If you can't use the Symfony Installer, download and install the demo
-> application using Git and Composer:
->
->     $ git clone https://github.com/symfony/symfony-demo
->     $ cd symfony-demo/
->     $ composer install --no-interaction
 
 Usage
 -----

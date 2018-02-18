@@ -13,11 +13,17 @@ class MealType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('mealDateTime','AppBundle\Form\Type\DateTimePickerType', array(
+        $builder
+
+
+            ->add('mealDateTime','AppBundle\Form\Type\DateTimePickerType', array(
+            'label' => 'label.meal_time'
 
         ))
 
-            ->add('text');
+            ->add('text','Symfony\Component\Form\Extension\Core\Type\TextType', array('label'=>'label.description'))
+            ->add('calories','Symfony\Component\Form\Extension\Core\Type\IntegerType', array("label"=>"Calories"))
+        ;
     }/**
      * {@inheritdoc}
      */

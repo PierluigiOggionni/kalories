@@ -69,8 +69,7 @@ class DefaultControllerTest extends WebTestCase
     {
         return array(
             array('/'),
-            array('/en/blog/'),
-            array('/en/blog/posts/morbi-tempus-commodo-mattis'),
+
             array('/en/login'),
         );
     }
@@ -78,10 +77,9 @@ class DefaultControllerTest extends WebTestCase
     public function getSecureUrls()
     {
         return array(
-            array('/en/admin/post/'),
-            array('/en/admin/post/new'),
-            array('/en/admin/post/1'),
-            array('/en/admin/post/1/edit'),
+            array('/en/admin'),
+            array('/en/meal'),
+
         );
     }
 }

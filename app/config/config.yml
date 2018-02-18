@@ -14,7 +14,7 @@ imports:
 # See http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     # This parameter defines the codes of the locales (languages) enabled in the application
-    app_locales: en|fr|de|es|cs|nl|ru|uk|ro|pt_BR|pl|it|ja|id|ca
+    app_locales: en
     app.notifications.email_sender: anonymous@example.com
 
 # Basic configuration for the Symfony framework features
@@ -24,7 +24,7 @@ framework:
     # Supported values are 'textmate', 'macvim', 'emacs' and 'sublime' shortcuts
     # and any custom configuration string, such as: "phpstorm://open?file=%%f&line=%%l"
     # See http://symfony.com/doc/current/reference/configuration/framework.html#ide
-    ide: sublime
+    ide: 'phpstorm://open?file=%%f&line=%%l'
 
     # When using the HTTP Cache, ESI allows to render page fragments separately
     # and with different cache configurations for each fragment
